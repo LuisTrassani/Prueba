@@ -1,0 +1,32 @@
+import random
+
+nombre = input("Ingresa tu nombre: ")
+
+print("¡Hola ",nombre,"!")
+print("Tu objetivo es addivinar un número entre 1 y 100 en 8 intentos.")
+
+numero_a_adivinar = random.randint(1, 100)
+intentos = 0
+maximo_intentos = 8
+
+while intentos < maximo_intentos:
+    intentos += 1
+
+    numero = input("Intento " + str(intentos) + ":")
+
+    if numero.isdigit():
+        numero = int(numero)
+
+        if numero == numero_a_adivinar:
+            print("¡Excelente ",nombre,"! Ganaste en el intento número ",intentos," . ")
+            break
+        elif numero < numero_a_adivinar:
+            print("El numero que elegiste es menor al que estas buscando. Intenta otra vez.")
+        else:
+            print("El numero que elegiste es mayor al que estás buscando. Intenta otra vez.")
+    else:
+        print("Debes ingresar un número entero.")
+
+    if intentos == maximo_intentos:
+        print("Te quedaste sin intentos. El número correcto era",numero_a_adivinar,".")
+        
